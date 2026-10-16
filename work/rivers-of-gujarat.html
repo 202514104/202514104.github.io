@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rivers of Gujarat · Kinjal Dave</title>
+<meta name="description" content="Case study: an interactive data-visualisation website about Gujarat’s 185 rivers, 802 dams and 20 polluted river stretches.">
+<meta property="og:title" content="Rivers of Gujarat · Kinjal Dave">
+<meta property="og:description" content="185 rivers, 802 dams and one question: how do you make a state’s water system readable?">
+<meta name="theme-color" content="#1A2A4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='2' width='4' height='28' fill='%2322201C'/%3E%3Cpath d='M17 7h9l4 4-4 4h-9z' fill='%23B3A6D6'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/newsreader-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/overpass-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="nav on-dark">
+  <div class="wrap">
+    <p class="crumb"><a class="who" href="../index.html">Kinjal Dave</a><span class="sep">&nbsp; / &nbsp;</span>Rivers of Gujarat</p>
+    <a class="back" href="../index.html#top">← Back to the junction</a>
+  </div>
+</header>
+<div class="progress" aria-hidden="true"></div>
+<main id="content">
+<section class="navy-band">
+  <div class="wrap">
+    <p class="label">Case study · Information design · Interactive website</p>
+    <h1 class="t-xl" style="margin-top:16px">Rivers of Gujarat</h1>
+    <p class="t-it sub">185 rivers, 802 dams and one question: how do you make a state’s water system readable?</p>
+    <a class="live" href="https://202514104.github.io/Rivers-of-Gujarat/" target="_blank" rel="noopener">Visit the live site ↗</a>
+    <div class="band-art">
+      <figure><img src="../img/rg-opening-petals.webp" alt="The six major rivers drawn as petals fanning out from the Arabian Sea, each to scale, with the stretch inside Gujarat marked." width="560" height="700"></figure>
+      <figure><img src="../img/rg-opening-districts.webp" alt="Map of Gujarat’s districts, shaded by how many major rivers flow through each." width="640" height="700" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+<section class="cs-open" style="padding-top:80px">
+  <div class="wrap">
+    <p class="label soft">Route 03 · 6 stops</p>
+    <dl class="glance" style="margin-top:24px">
+      <div><dt class="label">Problem</dt><dd class="b-m">River, dam and pollution data for Gujarat sits across government and open sources. The site gathers it and makes it comparable.</dd></div>
+      <div><dt class="label">My role</dt><dd class="b-m">Solo: design, data gathering and front-end build with AI-assisted coding. Guided by Dr. Anupam Rana, M.Des IUxD.</dd></div>
+      <div><dt class="label">Key insight</dt><dd class="t-s">Let each chart’s shape carry the data: rivers drawn to scale, one square per dam.</dd></div>
+      <div><dt class="label">What I made</dt><dd class="b-m">A five-chapter scrolling story: district map, petals to scale, 47 rivers regrouped three ways, nine dam records, a pollution overview with BOD.</dd></div>
+      <div><dt class="label">Status</dt><dd class="b-m">Live on GitHub Pages, on phones, tablets and desktop. Pollution levels checked against CPCB’s 2018 report.</dd></div>
+    </dl>
+  </div>
+</section>
+<div class="cs">
+<nav class="rail river" style="--rail:var(--rivers-navy)" aria-label="Case study stops">
+  <p class="label route-name">Route 03 · Rivers</p>
+  <p class="end top">sea</p>
+  <ol><li><a href="#s1"><span class="n">01</span><span>Choosing the topic</span></a></li><li><a href="#s2"><span class="n">02</span><span>Sources and method</span></a></li><li><a href="#s3"><span class="n">03</span><span>Structuring 185 rivers</span></a></li><li><a href="#s4"><span class="n">04</span><span>First layout → live site</span></a></li><li><a href="#s5"><span class="n">05</span><span>Interactions</span></a></li><li><a href="#s6"><span class="n">06</span><span>Building it</span></a></li></ol>
+  <p class="end bottom">source</p>
+</nav>
+<div class="cs-main">
+
+<section class="stop" id="s1">
+  <div class="stop-head reveal"><p class="mono">Stop 01 of 06</p><h2 class="t-l">Choosing the topic</h2><p class="lede b-l">The module set no detailed brief: choose a topic and turn it into a data-visualisation website. I chose Gujarat’s rivers.</p></div>
+  <div class="stop-body stack">
+    <div class="question reveal"><p class="label">The question I set myself</p><p class="t-m">How do you make a state’s water system readable: 185 rivers, 802 dams and 20 polluted stretches, spread across government and open sources?</p></div>
+    <div class="two reveal">
+      <div class="ruled"><p class="label soft">With an open brief</p><p class="b-m">There was no client and no fixed dataset. The topic, the scope and the story were mine to set.</p></div>
+      <div class="ruled"><p class="label soft">What “readable” meant here</p><p class="b-m">A reader should be able to find where the rivers are, compare them, sort them, and see what has been built on them and what has happened to them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stop" id="s2">
+  <div class="stop-head reveal"><p class="mono">Stop 02 of 06</p><h2 class="t-l">Sources and method</h2><p class="lede b-l">I compiled the data from government and open-source platforms, then simplified it for clarity and comparison. Rivers and dams are grouped by basin, flow direction and use.</p></div>
+  <div class="stop-body stack">
+    <div class="facts4 reveal">
+      <div><p class="t-l">185</p><p>rivers, 30 of them major</p></div>
+      <div><p class="t-l">47</p><p>rivers with origin, direction and flow recorded</p></div>
+      <div><p class="t-l">802</p><p>dams: 14 major, 193 medium, 595 minor</p></div>
+      <div><p class="t-l">20</p><p>polluted river stretches (CPCB, 2018)</p></div>
+    </div>
+    <div class="reveal">
+      <dl class="glance" style="margin-top:0;max-width:none">
+        <div><dt class="label">Rivers and dams</dt><dd class="b-m">Central Water Commission (CWC) · India-WRIS (Water Resources Information System) · Government of Gujarat publications</dd></div>
+        <div><dt class="label">Pollution</dt><dd class="b-m">Central Pollution Control Board (CPCB), polluted river stretches, 2018: priority classes I to V by BOD level</dd></div>
+        <div><dt class="label">Maps</dt><dd class="b-m">District boundaries: INDIAN-SHAPEFILES (Census / LGD) · India outline: Survey of India, via Datameet · River courses: Natural Earth</dd></div>
+      </dl>
+      <p class="cap" style="margin-top:16px">Every source is listed on the live site, in its closing Methodology section.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stop" id="s3">
+  <div class="stop-head reveal"><p class="mono">Stop 03 of 06</p><h2 class="t-l">Structuring 185 rivers</h2><p class="lede b-l">Five chapters, read in order: where the rivers are, how they compare, what kind they are, what has been built on them, and what has happened to them.</p></div>
+  <div class="stop-body table chapters reveal">
+    <div class="tr"><span class="mono lav">Chapter 1</span><p class="t-s">The map</p><p class="q">Where are the rivers?</p><p class="b-m soft">India, then Gujarat’s 33 districts, coloured by how many major rivers flow through each.</p></div>
+    <div class="tr"><span class="mono lav">Chapter 2</span><p class="t-s">Major rivers</p><p class="q">How do they compare?</p><p class="b-m soft">Six major rivers drawn to scale from the sea upstream, with the stretch inside Gujarat marked.</p></div>
+    <div class="tr"><span class="mono lav">Chapter 3</span><p class="t-s">River types</p><p class="q">What kind of river is each?</p><p class="b-m soft">47 rivers sorted by origin, flow direction and whether they flow all year.</p></div>
+    <div class="tr"><span class="mono lav">Chapter 4</span><p class="t-s">Dams</p><p class="q">What has been built on them?</p><p class="b-m soft">802 dams as squares, then nine major dams as records, largest storage first.</p></div>
+    <div class="tr"><span class="mono lav">Chapter 5</span><p class="t-s">Pollution</p><p class="q">What has happened to them?</p><p class="b-m soft">20 polluted stretches in CPCB’s five priority classes, with the BOD range for each.</p></div>
+  </div>
+</section>
+
+<section class="stop" id="s4">
+  <div class="stop-head reveal"><p class="mono">Stop 04 of 06</p><h2 class="t-l">From first layout to live site</h2><p class="lede b-l">My first layout was a long Figma page. In code, I kept the chapters and changed the charts.</p></div>
+  <div class="stop-body stack">
+    <div class="first-layout reveal">
+      <figure><p class="label soft" style="margin-bottom:10px">First layout · Figma</p><img src="../img/rg-early-full.webp" alt="The first layout as one long page: wave bands, photographs, a web of lines between rivers and types, dam cards and a pie chart." width="187" height="1024" loading="lazy"></figure>
+      <div style="display:grid;gap:28px;align-content:start;padding-top:28px">
+        <div><p class="label soft">What stayed</p><ul class="bullets b-m" style="margin-top:12px;display:grid;gap:8px"><li>The five chapters and their copy</li><li>The headline numbers and the nine dam records</li></ul></div>
+        <div><p class="label lav">What changed</p><ul class="bullets lav b-m" style="margin-top:12px;display:grid;gap:8px"><li>A plain page instead of wave bands</li><li>Rivers drawn to scale</li><li>Charts built from the data, one square per dam</li></ul></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="t-s">River types: from a web of lines to a question you choose</h3>
+      <div class="compare" style="margin-top:24px">
+        <figure><span class="label soft">First layout</span><img src="../img/rg-early-types.webp" alt="First layout: 47 river names joined by lines to six type circles." width="1024" height="654" loading="lazy"></figure>
+        <figure class="live"><span class="label">Live site</span><img src="../img/rg-live-types.webp" alt="Live site: rivers regrouped by direction and flow into four columns of tags." width="1140" height="720" loading="lazy"></figure>
+      </div>
+      <p class="b-m soft" style="margin-top:20px">Each river has three types, so the reader picks one question at a time.</p>
+    </div>
+    <div class="reveal">
+      <h3 class="t-s">Pollution: from a pie template to CPCB’s own classes</h3>
+      <div class="compare" style="margin-top:24px">
+        <figure><span class="label soft">First layout</span><img src="../img/rg-early-pollution.webp" alt="First layout: a pie chart of polluted rivers in traffic-light colours." width="1024" height="776" loading="lazy"></figure>
+        <figure class="live"><span class="label">Live site</span><img src="../img/rg-live-pol.webp" alt="Live site: a donut of 20 polluted stretches in five CPCB priority classes, each with its BOD range." width="1200" height="460" loading="lazy"></figure>
+      </div>
+      <p class="b-m soft" style="margin-top:20px">The chart now uses CPCB’s five priority classes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stop" id="s5">
+  <div class="stop-head reveal"><p class="mono">Stop 05 of 06</p><h2 class="t-l">Interactions, chapter by chapter</h2><p class="lede b-l">One main interaction per chapter.</p></div>
+  <div class="stop-body stack inter">
+    <div class="reveal"><h3><span class="label">Chapter 1 · The map</span><span class="t-s">Hover a district, or pick a river</span></h3><img src="../img/rg-live-map.webp" alt="The district map with Vadodara selected: a panel lists the Narmada and the Mahi, with the districts each passes through." width="1210" height="700" loading="lazy"><p class="b-m">Districts shaded by how many major rivers cross them.</p></div>
+    <div class="reveal"><h3><span class="label">Chapter 2 · Major rivers</span><span class="t-s">Change what the petals measure, or compare two</span></h3><img src="../img/rg-live-rivers.webp" alt="The petal chart with the Narmada and the Tapi compared side by side." width="1140" height="820" loading="lazy"><p class="b-m">Petals drawn to scale; compare any two rivers.</p></div>
+    <div class="reveal"><h3><span class="label">Chapter 3 · River types</span><span class="t-s">Regroup 47 rivers by one question</span></h3><img src="../img/rg-live-types.webp" alt="River tags grouped by direction and flow." width="1140" height="720" loading="lazy"><p class="b-m">Dark tags are perennial rivers.</p></div>
+    <div class="reveal"><h3><span class="label">Chapter 4 · Dams</span><span class="t-s">From 802 squares to nine records</span></h3><img src="../img/rg-live-units.webp" alt="802 small squares, one per dam: 14 major, 193 medium and 595 minor." width="1140" height="300" loading="lazy"><img src="../img/rg-live-records.webp" alt="Nine dam records in a sideways-scrolling row, each with a photograph and storage figures." width="1440" height="840" loading="lazy"><p class="b-m">One square per dam, then nine records by storage.</p></div>
+    <div class="reveal"><h3><span class="label">Chapter 5 · Pollution</span><span class="t-s">Click a class for its stretches</span></h3><img src="../img/rg-live-pol.webp" alt="Donut chart of 20 polluted stretches with an overview card explaining BOD." width="1200" height="460" loading="lazy"><p class="b-m">Click a class to see its stretches.</p></div>
+  </div>
+</section>
+
+<section class="stop" id="s6">
+  <div class="stop-head reveal"><p class="mono">Stop 06 of 06</p><h2 class="t-l">Building it</h2><p class="lede b-l">Built in HTML, CSS and JavaScript with AI-assisted coding, and works on phones, tablets and desktop.</p></div>
+</section>
+<div style="height:120px"></div>
+</div>
+</div>
+<section class="closing" style="background:var(--rivers-navy);padding:96px 0" aria-label="Closing">
+  <div class="wrap" style="display:block">
+    <p class="label">Closing</p>
+    <p class="t-m">Let the shape of each chart carry the data.</p>
+    <p style="margin-top:32px"><a class="mono" style="color:var(--rivers-mist)" href="https://202514104.github.io/Rivers-of-Gujarat/" target="_blank" rel="noopener">Visit the live site ↗ &nbsp; 202514104.github.io/Rivers-of-Gujarat</a></p>
+  </div>
+</section>
+<section class="next" aria-label="Next route">
+  <div class="wrap">
+    <a class="go" href="little-bloom.html"><p class="label soft">Back to the start</p><p class="t-l">Little Bloom →</p><p class="mono">Route 01 · Parenting app for first-time parents</p></a>
+    <a class="back" href="../index.html#top">← Back to the junction</a>
+  </div>
+</section>
+</main>
+<script src="../js/site.js" defer></script>
+</body>
+</html>
