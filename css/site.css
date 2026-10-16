@@ -530,3 +530,39 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .decision .screens{justify-content:flex-start}
   .cs-open .screens{padding:20px!important;gap:16px!important}
 }
+
+/* How I decide — refined */
+.decide .head{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.decide h2.t-l{max-width:760px}
+.decide .head .b-m{max-width:420px;padding-bottom:10px}
+.log .row{grid-template-columns:260px minmax(0,1fr) minmax(0,1fr);column-gap:56px;padding:36px 0}
+.log .row.headrow{padding:0 0 14px}
+.log .where a{display:inline;text-decoration:none;background-image:linear-gradient(var(--lavender-ink),var(--lavender-ink));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s var(--ease)}
+.log .where a:hover,.log .where a:focus-visible{background-size:100% 1px}
+.log .where .mono{margin-top:6px}
+.log .saw,.log .did{display:grid;gap:12px;align-content:start;font-size:clamp(17px,1.25vw,19px);line-height:1.6}
+.log .saw .before{color:var(--ink-soft)}
+.log .saw .after{color:var(--ink)}
+.log .did{display:grid;grid-template-columns:28px 1fr;column-gap:4px;row-gap:12px}
+.log .did::before{content:"→";color:var(--lavender-ink);grid-row:1;transition:transform .25s var(--ease)}
+.log .did p{grid-column:2}
+.log .did .why{font-size:14px;line-height:1.57;color:var(--ink-soft)}
+.log .row:not(.headrow):hover .did::before{transform:translateX(4px)}
+@media (max-width:1024px){
+  .log .row{grid-template-columns:200px 1fr 1fr;column-gap:32px}
+}
+.log .mlabel{display:none}
+@media (max-width:760px){
+  .decide .head{grid-template-columns:1fr}
+  .log .row{grid-template-columns:1fr;row-gap:20px;padding:28px 0}
+  .log .mlabel{display:block;color:var(--ink-soft);grid-column:1/-1}
+  .log .did{grid-template-columns:24px 1fr}
+  .log .did::before{grid-row:2}
+}
+@media (max-width:1024px) and (min-width:761px){
+  .log .row{grid-template-columns:1fr 1fr;column-gap:40px;row-gap:16px}
+  .log .row .where{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .log .row .where .mono{margin-top:0}
+  .log .row.headrow>*:first-child{display:none}
+}
+@media (max-width:760px){ .log .did .mlabel{grid-column:1/-1} }
