@@ -614,3 +614,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 @media (max-width:1024px) and (min-width:761px){.table.obs .tr>*:nth-child(1){padding-top:10px}}
 .work-head .wrap{grid-template-columns:1fr}
+/* Signposts are now a short index: number, title, one line, jump down to the project */
+.sign{min-height:176px}
+.sign .go{padding-top:16px}

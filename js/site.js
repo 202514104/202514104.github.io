@@ -18,69 +18,16 @@
     rev.forEach(function(el){io.observe(el);});
   } else rev.forEach(function(el){el.classList.add('in');});
 
-  /* The junction: signpost navigation on the homepage */
+  /* The junction: hovering a board lights it and dims the others; each board jumps to its project below */
   var J=document.querySelector('.junction');
-  if(J){
-    var signs=[].slice.call(J.querySelectorAll('.sign'));
-    var hero=document.querySelector('.hero .wrap');
-    var preview=document.querySelector('.preview');
-    var line=document.querySelector('.route-line');
-    var lit=J.querySelector('.lit');
-    var post=J.querySelector('.post');
-    var hideT;
-    function place(sign){
-      if(!preview||!line||window.innerWidth<=1024) return;
-      var hr=hero.getBoundingClientRect(), sr=sign.getBoundingClientRect(), por=post.getBoundingClientRect();
-      var ph=preview.offsetHeight, pw=preview.offsetWidth;
-      var sy=sr.top+sr.height/2;                       /* board centre, viewport coords */
-      var top=sy-ph/2, minTop=96, maxTop=window.innerHeight-ph-24;
-      top=Math.max(minTop,Math.min(top,maxTop));       /* keep the whole card on screen */
-      preview.style.top=(top-hr.top)+'px';
-      preview.style.left=(por.left-hr.left-40-pw)+'px';
-      var ly=Math.max(top+20,Math.min(sy,top+ph-20));  /* line meets the card and the post */
-      line.style.top=(ly-hr.top-1)+'px'; line.style.left=(por.left-hr.left-40)+'px'; line.style.width='40px';
-      lit.style.top='0px'; lit.style.height='0px';
-    }
-    function show(sign){
-      clearTimeout(hideT);
-      J.classList.add('engaged');
-      signs.forEach(function(s){s.classList.toggle('active',s===sign);});
-      if(preview){
-        var tpl=document.getElementById('pv-'+sign.dataset.route);
-        if(tpl){ preview.innerHTML=tpl.innerHTML; }
-        preview.classList.add('show'); preview.setAttribute('aria-hidden','false');
-        place(sign); line.classList.add('show'); lit.style.transform='scaleY(1)';
-      }
-    }
-    function hide(){
-      hideT=setTimeout(function(){
-        J.classList.remove('engaged'); signs.forEach(function(s){s.classList.remove('active');});
-        if(preview){preview.classList.remove('show');preview.setAttribute('aria-hidden','true');line.classList.remove('show');lit.style.transform='scaleY(0)';}
-      },80);
-    }
-    if(canHover){
-      signs.forEach(function(s){
-        s.addEventListener('mouseenter',function(){show(s);});
-        s.addEventListener('mouseleave',hide);
-        s.addEventListener('focus',function(){show(s);});
-        s.addEventListener('blur',hide);
-      });
-      window.addEventListener('resize',function(){var a=J.querySelector('.sign.active'); if(a) place(a);});
-    } else {
-      /* Touch: first tap opens the preview under the board, a second tap follows the route */
-      signs.forEach(function(s){
-        s.addEventListener('click',function(e){
-          var tp=document.getElementById('tap-'+s.dataset.route);
-          if(!tp) return;
-          if(!tp.classList.contains('open')){
-            e.preventDefault();
-            document.querySelectorAll('.tap-preview.open').forEach(function(x){x.classList.remove('open');});
-            signs.forEach(function(x){x.classList.remove('active');});
-            tp.classList.add('open'); s.classList.add('active');
-          }
-        });
-      });
-    }
+  if(J&&canHover){
+    var signs=[].slice.call(J.querySelectorAll('.sign')), hideT;
+    function show(sign){clearTimeout(hideT);J.classList.add('engaged');signs.forEach(function(s){s.classList.toggle('active',s===sign);});}
+    function hide(){hideT=setTimeout(function(){J.classList.remove('engaged');signs.forEach(function(s){s.classList.remove('active');});},80);}
+    signs.forEach(function(s){
+      s.addEventListener('mouseenter',function(){show(s);}); s.addEventListener('mouseleave',hide);
+      s.addEventListener('focus',function(){show(s);}); s.addEventListener('blur',hide);
+    });
   }
 
   /* Case studies: the route rail marks "you are here" */
