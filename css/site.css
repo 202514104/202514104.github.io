@@ -591,3 +591,23 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .contact .details .mono{font-size:13px}
 @media (max-width:1024px){.contact .grid{grid-template-columns:1fr;gap:48px;align-items:start}.contact .details{max-width:420px}}
 @media (prefers-reduced-motion:reduce){.contact .details .links a span:last-child{transition:none}}
+
+/* Row alignment: line up every column on its first line of text (baseline), not its top edge,
+   so large serif titles sit level with smaller body text and labels. */
+.table .tr:not(.th),.synth .tr:not(.th),.lessons .tr,.chain>div,.glance>div,.log .row:not(.headrow),.chapters .tr{align-items:baseline}
+.glance dt,.chain dt{padding-top:0}
+.synth .t-s{margin-top:0}
+.table .th{align-items:end}
+/* Observation tables below desktop: the header row is hidden, so each cell carries its own label */
+.table.obs [data-label]::before{content:none}
+@media (max-width:1024px){
+  .table.obs .tr{column-gap:32px;row-gap:14px;align-items:start}
+  .table.obs [data-label]::before{content:attr(data-label);display:block;margin-bottom:6px;font-family:var(--sans);font-weight:600;font-size:12px;line-height:1.33;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+}
+@media (max-width:760px){
+  .table.obs .tr{grid-template-columns:28px 1fr;column-gap:12px;row-gap:12px}
+  .table.obs .tr>*:nth-child(1){grid-column:1!important;padding-top:6px}
+  .table.obs .tr>*:nth-child(n+2){grid-column:2!important}
+  .table.obs .t-s{font-size:22px}
+}
+@media (max-width:1024px) and (min-width:761px){.table.obs .tr>*:nth-child(1){padding-top:10px}}
