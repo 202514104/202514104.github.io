@@ -30,12 +30,16 @@
     var hideT;
     function place(sign){
       if(!preview||!line||window.innerWidth<=1024) return;
-      var intro=hero.querySelector('.intro'); preview.style.top=(intro.offsetTop+intro.offsetHeight+48)+'px';
-      var hr=hero.getBoundingClientRect(), pr=preview.getBoundingClientRect(), jr=J.getBoundingClientRect(), sr=sign.getBoundingClientRect(), por=post.getBoundingClientRect();
-      var ly=pr.top+pr.height/2-hr.top;
-      line.style.top=(ly-1)+'px'; line.style.left=(pr.right-hr.left)+'px'; line.style.width=(por.left-pr.right)+'px';
-      var sy=sr.top+sr.height/2-jr.top, py=pr.top+pr.height/2-jr.top;
-      lit.style.top=Math.min(sy,py)+'px'; lit.style.height=Math.abs(py-sy)+'px';
+      var hr=hero.getBoundingClientRect(), sr=sign.getBoundingClientRect(), por=post.getBoundingClientRect();
+      var ph=preview.offsetHeight, pw=preview.offsetWidth;
+      var sy=sr.top+sr.height/2;                       /* board centre, viewport coords */
+      var top=sy-ph/2, minTop=96, maxTop=window.innerHeight-ph-24;
+      top=Math.max(minTop,Math.min(top,maxTop));       /* keep the whole card on screen */
+      preview.style.top=(top-hr.top)+'px';
+      preview.style.left=(por.left-hr.left-40-pw)+'px';
+      var ly=Math.max(top+20,Math.min(sy,top+ph-20));  /* line meets the card and the post */
+      line.style.top=(ly-hr.top-1)+'px'; line.style.left=(por.left-hr.left-40)+'px'; line.style.width='40px';
+      lit.style.top='0px'; lit.style.height='0px';
     }
     function show(sign){
       clearTimeout(hideT);

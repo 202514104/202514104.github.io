@@ -569,3 +569,25 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .log .row.headrow>*:first-child{display:none}
 }
 @media (max-width:760px){ .log .did .mlabel{grid-column:1/-1} }
+
+/* --- Nov 2026 refinements --- */
+/* Signpost: post ends in a base plate, quiet caption below (replaces "You are here") */
+.junction .post{bottom:76px}
+.junction .post::after{content:"";position:absolute;left:-12px;bottom:-6px;width:30px;height:6px;background:var(--ink)}
+.junction .post-note{margin-top:28px;padding-left:32px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:20px;line-height:1.4;color:var(--ink-soft)}
+/* Hover preview: sits beside the board you're on, always on screen */
+.preview{width:420px;grid-template-columns:150px 1fr;gap:20px;padding:16px;z-index:5}
+.preview .pv-media{height:190px}
+.preview .pv-line{font-size:20px}
+/* Contact */
+.contact .grid{grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:80px;align-items:end}
+.contact .details{padding-top:0;display:grid;gap:20px;padding-bottom:6px}
+.contact .details .links{list-style:none;margin:0;padding:0;border-top:1px solid var(--lavender)}
+.contact .details .links li{border-bottom:1px solid var(--lavender)}
+.contact .details .links a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:18px;font-weight:600;color:var(--ink);text-decoration:none}
+.contact .details .links a span:last-child{color:var(--lavender-ink);transition:transform .2s var(--ease)}
+.contact .details .links a:hover span:first-child{text-decoration:underline;text-underline-offset:4px}
+.contact .details .links a:hover span:last-child{transform:translate(2px,-2px)}
+.contact .details .mono{font-size:13px}
+@media (max-width:1024px){.contact .grid{grid-template-columns:1fr;gap:48px;align-items:start}.contact .details{max-width:420px}}
+@media (prefers-reduced-motion:reduce){.contact .details .links a span:last-child{transition:none}}
