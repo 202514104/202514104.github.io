@@ -316,9 +316,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .board li.picked{background:var(--lavender-wash);border-color:var(--lavender-ink);font-weight:600}
 .board-key{margin-top:12px;font-family:var(--mono);font-size:13px;color:var(--ink-soft)}
 .board-key i{display:inline-block;width:12px;height:12px;background:var(--lavender-wash);border:1px solid var(--lavender-ink);margin-right:6px;vertical-align:-1px}
-.synth .tr{grid-template-columns:1fr 1fr 1fr}
-.synth .did{display:grid;grid-template-columns:16px 1fr;gap:10px}
-.synth .did::before{content:"";width:14px;height:14px;background:var(--lavender-ink);margin-top:6px}
+.synth .tr{grid-template-columns:1fr 1fr 1fr;column-gap:48px;align-items:start;padding:28px 0}
+.synth .th{padding:14px 0}
+.synth .tr>*{margin:0}
+.synth .t-s{font-size:24px;line-height:1.3;margin-top:-3px}
+.synth .did{color:var(--ink);border-left:2px solid var(--lavender-ink);padding-left:16px;margin-left:-18px}
+.synth .th>*:nth-child(3){padding-left:0}
 
 .gallery{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:32px 0;border-top:1px solid var(--rule)}
 .gallery .label{color:var(--lavender-ink)}
